@@ -1,38 +1,233 @@
+* {
+  box-sizing: border-box;
+}
 .App {
+  width: 100%;
+}
+.header {
+  height: 300px;
+  width: 1903px;
+  font-style: italic;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 30px;
+  background-size: cover;
   text-align: center;
+  /* background-color: blueviolet; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navCardField {
+  /* background-color: rgb(219, 91, 91); */
+  height: 40px;
+  width: 1400px;
+  border-style: inset;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px auto;
+}
+
+.navCardFieldButtons {
+  border: none;
+  cursor: pointer;
+  margin: 0px 7.5px 0px 7.5px;
+  box-shadow: 3px;
+  background-color: white;
+}
+.navCardFieldButtons:hover {
+  box-shadow: 0px 0px 0px 1px rgb(140, 137, 143);
+  background-color: rgb(185, 202, 202);
+}
+.navCardFieldButtons:focus {
+  box-shadow: 0px 0px 0px 1px rgb(140, 137, 143);
+  background-color: rgb(185, 202, 202);
+}
+.card {
+  display: flex;
+  width: calc(20% - 20px);
+  height: 400px;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  border: 1px solid black;
+  margin: 10px;
+}
+.card .championName {
+  background-color: rgb(0, 102, 128);
+  width: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 40px;
+}
+.card:hover {
+  box-shadow: 5px 5px 5px 5px rgb(0, 102, 128);
+}
+.cardField {
+  display: flex;
+  align-items: center;
+  width: 1400px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+.championIMG {
+  border-radius: 20px;
+
+  width: 180px;
+}
+.navCardField select {
+  width: 100px;
+  height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+h2 {
+  font-size: 20px;
+}
+h3 {
+  width: 460px;
+
+  margin: 12px auto 0px;
+  font-size: 0.875rem;
+  text-align: center;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.modal-container {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal {
+  width: 40%;
+  height: 50%;
+  background: white;
+  overflow: hidden;
+}
+.modalCardTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.modalInfo {
+  display: flex;
+}
+.modalStats {
+  width: 100%;
+  display: flex;
+  letter-spacing: 0.1em;
+  /* flex-direction: column; 
+   /* text-align: center; */
+  /* flex-direction: column-reverse; */
+  justify-content: space-between;
+}
+#modalIMGid {
+  /* height: 100px; */
+  width: 100%;
+  border: 5px rgba(11, 198, 227, 0.63);
+  border-style: inset;
+}
+
+.modalStatsMacro {
+  width: 50%;
+  line-height: 100%;
+  margin-top: 2px;
+}
+.modalStatsMicro {
+  line-height: 175%;
+}
+.hovertext {
+  position: relative;
+  border-bottom: 1px dotted black;
+}
+
+.hovertext:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: 140px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  transition: opacity 1s ease-in-out;
+
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 110%;
+}
+
+.hovertext:hover:before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.card-memory {
+  position: relative;
+}
+.card-memory img {
+  width: 100%;
+  display: block;
+  border: 2px solid white;
+  border-radius: 6px;
+}
+.card-memory .front {
+  transform: rotateY(90deg);
+  position: absolute;
+}
+.flipped .front {
+  transform: rotateY(0deg);
+}
+.memory-field {
+  max-width: 860px;
+  margin: 40px auto;
+}
+.newsCard {
+  width: 30%;
+  height: auto;
+  text-align: center;
+  overflow: hidden;
+  background-color: transparent;
+  border: 1px solid black;
+
+  margin: 10px 0;
+  /* float: left; */
+}
+.newsCardImg {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 1s ease;
+}
+.newsCardImg:hover {
+  transform: scale(1.1);
+  /* transform: translateY(10px); */
+}
+.newsCardTitulo {
+  text-align: justify;
+}
+.newsCardSubTitulo {
+  text-align: justify;
+}
+.newsField {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+@media (max-width: 722px) {
+  .newsCard {
+    width: 100%;
   }
 }
