@@ -13,7 +13,7 @@ const cardImages = [
 
 function MemoryGame() {
   const [cards, setCards] = useState([]);
-  const [turns, setTurns] = useState(0);
+  const [, setTurns] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
 

@@ -13,6 +13,7 @@ export default function Layout(props) {
     <>
       <Image>
         <img
+          alt="leagueOfLegends"
           className="logoIMG"
           src="https://logodownload.org/wp-content/uploads/2014/09/lol-league-of-Legends-logo.png"
         ></img>

@@ -19,15 +19,14 @@ export default function Rotation({ championsRotation }) {
   const arrayDeChampions = Object.values(championsRotation);
   console.log(dataRotationKey);
   const array = [];
-  dataRotationKey.map((key) => {
-    arrayDeChampions.map((champion) => {
-      if (key == champion.key) {
+  dataRotationKey.forEach((key) => {
+    arrayDeChampions.forEach((champion) => {
+      if (key === parseInt(champion.key)) {
         array.push(champion);
       }
     });
   });
 
-  console.log(array);
   return (
     <div className="cardField">
       {array.map((c) => {

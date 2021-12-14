@@ -23,6 +23,7 @@ export default function Card({ champion }) {
           <span>{champion.title}</span>
           <div className="modalIMG">
             <img
+              alt="chamionsImg"
               id="modalIMGid"
               className="modalIMG"
               src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champion.id}_0.jpg?w=510`}
@@ -102,6 +103,7 @@ export default function Card({ champion }) {
         </Contenido>
       </Modal>
       <img
+        alt="chamionImg"
         className="championIMG"
         src={`https://static.u.gg/assets/lol/riot_static/11.23.1/img/champion/${champion.image.full}`}
       />
