@@ -10,15 +10,15 @@ import { useState, useEffect } from "react";
 function App() {
   const [champions, setChampions] = useState([]);
   const [championsFilter, setChampionsFilter] = useState([]);
-  const [championsRotation, setChampionsRotation] = useState([]);
-  const BASE_URL = "http://ddragon.leagueoflegends.com/cdn/11.15.1/data/en_US/";
+
+  const BASE_URL =
+    "https://ddragon.leagueoflegends.com/cdn/11.15.1/data/en_US/";
   useEffect(() => {
     fetch(`${BASE_URL}champion.json`)
       .then((res) => res.json())
       .then((data) => {
         setChampions(data.data);
         setChampionsFilter(data.data);
-        setChampionsRotation(data.data);
       });
   }, []);
 
@@ -42,12 +42,7 @@ function App() {
             <Route path="/news" element={<News></News>}></Route>
             <Route
               path="/rotation"
-              element={
-                <Rotation
-                  championsRotation={championsRotation}
-                  setChampionsRotation={setChampionsRotation}
-                />
-              }
+              element={<Rotation champions={champions} />}
             ></Route>
             <Route path="/minigame" element={<MemoryGame />}></Route>
           </Routes>

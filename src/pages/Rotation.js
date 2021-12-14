@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
-export default function Rotation({ championsRotation }) {
+export default function Rotation({ champions }) {
   const [dataRotationKey, setDataRotationKey] = useState([]);
 
   useEffect(() => {
@@ -16,8 +16,8 @@ export default function Rotation({ championsRotation }) {
         console.log("hubo un problemita rey" + error);
       });
   }, []);
-  const arrayDeChampions = Object.values(championsRotation);
-  console.log(dataRotationKey);
+  const arrayDeChampions = Object.values(champions);
+  console.log(champions);
   const array = [];
   dataRotationKey.forEach((key) => {
     arrayDeChampions.forEach((champion) => {
