@@ -1,39 +1,44 @@
 import NewsCard from "./NewsCard";
 import React from "react";
-
+import styled from "styled-components";
 export default function NewsCardField() {
   return (
-    <div className="newsField">
+    <DivNewsCardField>
       <NewsCard
         imagen="https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd51626dc512592fd/61a8316e46713833c753a1ef/TFT_Patch_11_24_Notes_Banner_v2.jpg"
         titulo="NOTAS DE LA VERSIÓN 11.24 DE TEAMFIGHT TACTICS"
-        subtitulo="este es el subtitulo"
+        subtitulo="TFT"
       ></NewsCard>
       <NewsCard
-        imagen="https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd51626dc512592fd/61a8316e46713833c753a1ef/TFT_Patch_11_24_Notes_Banner_v2.jpg"
-        titulo="NOTAS DE LA VERSIÓN 11.24 DE LEAGUE OF LEGENDS"
-        subtitulo="este es el sub"
+        imagen="https://media.vandal.net/m/1-2021/2021121964291_1.jpg"
+        titulo="NEW SKINS PRE-SEASON"
+        subtitulo="NEW SKINS"
       ></NewsCard>
       <NewsCard
-        imagen="https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd51626dc512592fd/61a8316e46713833c753a1ef/TFT_Patch_11_24_Notes_Banner_v2.jpg"
-        titulo="NOTAS DE LA VERSIÓN 11.24 DE LEAGUE OF LEGENDS"
-        subtitulo="este es el sub"
+        imagen="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/arcane-league-of-legends-1636541499.jpg?crop=1.00xw:0.893xh;0,0.0261xh&resize=640:*"
+        titulo="NEW LEAGUE SERIE RELEASE"
+        subtitulo="ARCANE"
       ></NewsCard>
       <NewsCard
-        imagen="https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd51626dc512592fd/61a8316e46713833c753a1ef/TFT_Patch_11_24_Notes_Banner_v2.jpg"
-        titulo="NOTAS DE LA VERSIÓN 11.24 DE LEAGUE OF LEGENDS"
-        subtitulo="este es el sub"
+        imagen="https://img.blogs.es/anexom/wp-content/uploads/2021/08/LEAGUE-OF-LEGENDS-WILD-RIFT.jpg"
+        titulo="NOTAS DE LA VERSIÓN 11.23 DE LEAGUE OF LEGENDS"
+        subtitulo="VERSIÓN 11.23"
       ></NewsCard>
       <NewsCard
-        imagen="https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd51626dc512592fd/61a8316e46713833c753a1ef/TFT_Patch_11_24_Notes_Banner_v2.jpg"
-        titulo="NOTAS DE LA VERSIÓN 11.24 DE LEAGUE OF LEGENDS"
-        subtitulo="este es el sub"
+        imagen="https://www.dexerto.es/wp-content/uploads/sites/3/2021/10/26/parche-11.22-league-of-legends.jpg"
+        titulo="NOTAS DE LA VERSIÓN 11.22 DE LEAGUE OF LEGENDS"
+        subtitulo="VERSIÓN 11.22"
       ></NewsCard>
       <NewsCard
-        imagen="https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd51626dc512592fd/61a8316e46713833c753a1ef/TFT_Patch_11_24_Notes_Banner_v2.jpg"
-        titulo="NOTAS DE LA VERSIÓN 11.24 DE LEAGUE OF LEGENDS"
-        subtitulo="este es el sub"
+        imagen="https://www.dexerto.es/wp-content/uploads/sites/3/2020/10/conociendo-a-seraphine-la-nueva-campeona-de-league-of-legends.jpg"
+        titulo="NOTAS DE LA VERSIÓN 11.21 DE LEAGUE OF LEGENDS"
+        subtitulo="VERSIÓN 11.21"
       ></NewsCard>
-    </div>
+    </DivNewsCardField>
   );
 }
+const DivNewsCardField = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+`;

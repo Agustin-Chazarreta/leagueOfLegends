@@ -1,12 +1,15 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
+import { API_KEY_LOL } from "../utils/keys";
+
+import styled from "styled-components";
 export default function Rotation({ champions }) {
   const [dataRotationKey, setDataRotationKey] = useState([]);
 
   useEffect(() => {
     fetch(
-      `https://la1.api.riotgames.com/lol/platform/v3/champion-rotations?api_key=RGAPI-3b3d6aac-1611-4e0b-8041-608e868c789c`
+      `https://la1.api.riotgames.com/lol/platform/v3/champion-rotations?api_key=${API_KEY_LOL}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -28,10 +31,17 @@ export default function Rotation({ champions }) {
   });
 
   return (
-    <div className="cardField">
+    <RotationCardField>
       {array.map((c) => {
         return <Card champion={c}></Card>;
       })}
-    </div>
+    </RotationCardField>
   );
 }
+const RotationCardField = styled.div`
+  display: flex;
+  align-items: center;
+  width: 1400px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+`;

@@ -7,6 +7,7 @@ import MemoryGame from "./pages/MiniGame";
 import Rotation from "./pages/Rotation";
 import News from "./pages/News";
 import { useState, useEffect } from "react";
+import styled from "styled-components";
 function App() {
   const [champions, setChampions] = useState([]);
   const [championsFilter, setChampionsFilter] = useState([]);
@@ -23,7 +24,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <AppContainer>
       <BrowserRouter>
         <Layout>
           <Routes>
@@ -48,8 +49,11 @@ function App() {
           </Routes>
         </Layout>
       </BrowserRouter>
-    </div>
+    </AppContainer>
   );
 }
 
 export default App;
+const AppContainer = styled.div`
+  width: 100%;
+`;

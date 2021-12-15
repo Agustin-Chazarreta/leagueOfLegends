@@ -1,5 +1,6 @@
 import React from "react";
 import "../App.css";
+import styled from "styled-components";
 export default function Navegation({ champions, setChampionsFilter }) {
   const filterFunction = (e) => {
     setChampionsFilter(
@@ -22,69 +23,65 @@ export default function Navegation({ champions, setChampionsFilter }) {
   };
 
   return (
-    <nav className="navCardField">
-      <select value="Buscar" className="navCardFieldSelector">
-        Buscar
-      </select>
+    <NavCardField>
+      <NavCardFieldSelect value="Buscar">Buscar</NavCardFieldSelect>
       <div>
-        <button
-          className="navCardFieldButtons"
-          onClick={() => setChampionsFilter(champions)}
-        >
+        <NavCardFieldButton onClick={() => setChampionsFilter(champions)}>
           Todos
-        </button>
-        <button
-          className="navCardFieldButtons"
-          title="Assassin"
-          onClick={(e) => filterFunction(e)}
-        >
+        </NavCardFieldButton>
+        <NavCardFieldButton title="Assassin" onClick={(e) => filterFunction(e)}>
           Asesinos
-        </button>
-        <button
-          className="navCardFieldButtons"
-          title="Fighter"
-          onClick={(e) => filterFunction(e)}
-        >
+        </NavCardFieldButton>
+        <NavCardFieldButton title="Fighter" onClick={(e) => filterFunction(e)}>
           Luchadores
-        </button>
-        <button
-          className="navCardFieldButtons"
-          title="Mage"
-          onClick={(e) => filterFunction(e)}
-        >
+        </NavCardFieldButton>
+        <NavCardFieldButton title="Mage" onClick={(e) => filterFunction(e)}>
           Magos
-        </button>
-        <button
-          className="navCardFieldButtons"
-          title="Marksman"
-          onClick={(e) => filterFunction(e)}
-        >
+        </NavCardFieldButton>
+        <NavCardFieldButton title="Marksman" onClick={(e) => filterFunction(e)}>
           Tiradores
-        </button>
-        <button
-          className="navCardFieldButtons"
-          title="Support"
-          onClick={(e) => filterFunction(e)}
-        >
+        </NavCardFieldButton>
+        <NavCardFieldButton title="Support" onClick={(e) => filterFunction(e)}>
           Soportes
-        </button>
-        <button
-          className="navCardFieldButtons"
-          title="Tank"
-          onClick={(e) => filterFunction(e)}
-        >
+        </NavCardFieldButton>
+        <NavCardFieldButton title="Tank" onClick={(e) => filterFunction(e)}>
           Tanques
-        </button>
-        <button
-          className="navCardFieldButtons"
-          onClick={() => heroeAleatorio()}
-        >
+        </NavCardFieldButton>
+        <NavCardFieldButton onClick={() => heroeAleatorio()}>
           Campeon Aleatorio
-        </button>
+        </NavCardFieldButton>
       </div>
-      <select value="Buscar" className="navCardFieldSelector">
-        Buscar
-      </select>
-    </nav>
+      <NavCardFieldSelect value="Buscar">Buscar</NavCardFieldSelect>
+    </NavCardField>
   );
 }
+const NavCardField = styled.nav`
+  height: 40px;
+  width: 1400px;
+  border-style: inset;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px auto;
+`;
+const NavCardFieldButton = styled.button`
+  border: none;
+  cursor: pointer;
+  margin: 0px 7.5px 0px 7.5px;
+  box-shadow: 3px;
+  background-color: white;
+  transition: box-shadow 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
+  &:hover {
+    box-shadow: 0px 0px 0px 1px rgb(140, 137, 143);
+    background-color: rgb(185, 202, 202);
+  }
+  &:focus {
+    box-shadow: 0px 0px 0px 1px rgb(140, 137, 143);
+    background-color: rgb(185, 202, 202);
+  }
+`;
+const NavCardFieldSelect = styled.select`
+  width: 100px;
+  height: 100%;
+`;
