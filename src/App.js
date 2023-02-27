@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import AllChampions from "./pages/Champions";
-import Home from "./components/Home";
+import Home from "./pages/Home";
 import Layout from "./components/Layout";
 import MemoryGame from "./pages/MiniGame";
 import Rotation from "./pages/Rotation";

@@ -57,8 +57,10 @@ function MemoryGame() {
   return (
     <div className="memory-field">
       <H1>Magic Match</H1>
+      <ButtonContainer>
       <Button onClick={shuffleCards}>New Game</Button>
-      <Div>
+      </ButtonContainer>
+      <GameContainer>
         {cards.map((card) => (
           <SingleCard
             key={card.id}
@@ -67,7 +69,7 @@ function MemoryGame() {
             flipped={card === choiceOne || card === choiceTwo || card.matched}
           ></SingleCard>
         ))}
-      </Div>
+      </GameContainer>
     </div>
   );
 }
@@ -88,8 +90,12 @@ const Button = styled.button`
     color: #fff;
   }
 `;
-
-const Div = styled.div`
+const ButtonContainer = styled.div`
+  margin-top: 40px;
+  display:flex ;
+  justify-content:center ;
+`;
+const GameContainer = styled.div`
   margin-top: 40px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;

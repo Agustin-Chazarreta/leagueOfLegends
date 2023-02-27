@@ -25,12 +25,12 @@ export default function NewsCardField() {
         subtitulo="VERSIÓN 11.23"
       ></NewsCard>
       <NewsCard
-        imagen="https://www.dexerto.es/wp-content/uploads/sites/3/2021/10/26/parche-11.22-league-of-legends.jpg"
+        imagen="https://images6.alphacoders.com/651/651136.jpg"
         titulo="NOTAS DE LA VERSIÓN 11.22 DE LEAGUE OF LEGENDS"
         subtitulo="VERSIÓN 11.22"
       ></NewsCard>
       <NewsCard
-        imagen="https://www.dexerto.es/wp-content/uploads/sites/3/2020/10/conociendo-a-seraphine-la-nueva-campeona-de-league-of-legends.jpg"
+        imagen="https://whatifgaming.com/wp-content/uploads/2022/05/Dark-Star-scaled.jpg"
         titulo="NOTAS DE LA VERSIÓN 11.21 DE LEAGUE OF LEGENDS"
         subtitulo="VERSIÓN 11.21"
       ></NewsCard>
