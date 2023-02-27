@@ -37,6 +37,7 @@ export default function AllChampions({
     </div>
   );
 }
+
 const Header = styled.div`
   height: 300px;
   width: 1903px;

@@ -38,7 +38,7 @@ export default function Layout(props) {
 const Image = styled.div`
   display: flex;
   justify-content: center;
-  aling-items: center;
+  align-items: center;
   img {
     width: 50%;
   }
