@@ -11,18 +11,16 @@ export default function AllChampions({
   return (
     <div>
       <Header>
-        <div>
-          <h2>ELIGE TU </h2>
-        </div>
-        <div>
-          <h1> CAMPEÓN </h1>
-        </div>
-        <div>
-          <h3>
-            Con más de 140 campeones, encontrarás el que se ajuste perfectamente
-            a tu estilo de juego. Domina a uno o domínalos a todos.
-          </h3>
-        </div>
+        <HeaderSection>
+          <h1>
+            CHOOSE YOUR <span>CHAMPION</span>
+          </h1>
+          <p>
+            With over 140 champions, you'll find the one that fits your
+            playstyle perfectly. <br />
+            Master one or master them all.
+          </p>
+        </HeaderSection>
       </Header>
       <Navegation
         champions={champions}
@@ -67,4 +65,49 @@ const DivCardField = styled.div`
   width: 1400px;
   flex-wrap: wrap;
   margin: 0 auto;
+`;
+
+const HeaderSection = styled.section`
+  text-align: center;
+  padding: 40px 20px;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #006680;
+
+    span {
+      color: #ffd700;
+      display: inline-block;
+      margin-left: 8px;
+    }
+
+    @media (min-width: 640px) {
+      font-size: 3rem;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 4rem;
+    }
+  }
+
+  p {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #ddd;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+
+    @media (min-width: 640px) {
+      font-size: 1.125rem;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 1.25rem;
+    }
+  }
 `;

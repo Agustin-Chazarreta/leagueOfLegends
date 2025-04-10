@@ -4,6 +4,7 @@ import Modal from "./Modal";
 import styled from "styled-components";
 import { useState } from "react";
 import { BsSuitHeartFill, BsFillDropletFill } from "react-icons/bs";
+import AnimatedRating from "./RatingAnimation";
 import {
   GiAbdominalArmor,
   GiBroadsword,
@@ -11,12 +12,11 @@ import {
   GiMagicShield,
 } from "react-icons/gi";
 
-import { Rating } from "@mui/material";
 export default function Card({ champion }) {
   const [stateModal, setStateModal] = useState(false);
 
   return (
-    <CardModal onClick={() => setStateModal(!stateModal)}>
+    <CardContainer onClick={() => setStateModal(!stateModal)}>
       <Modal stateModal={stateModal} setStateModal={setStateModal}>
         <Contenido>
           <span>{champion.id}</span>
@@ -57,42 +57,22 @@ export default function Card({ champion }) {
             <ModalStatsStarRate>
               <p>
                 Attack:
-                <Rating
-                  name="customized-10"
-                  defaultValue={Number(champion.info.attack)}
-                  max={10}
-                  readOnly
-                />
+                <AnimatedRating value={Number(champion.info.attack)} />
               </p>
 
               <p>
                 Defense:
-                <Rating
-                  name="customized-10"
-                  defaultValue={Number(champion.info.defense)}
-                  max={10}
-                  readOnly
-                />
+                <AnimatedRating value={Number(champion.info.defense)} />
               </p>
 
               <p>
                 Magic:
-                <Rating
-                  name="customized-10"
-                  defaultValue={Number(champion.info.magic)}
-                  max={10}
-                  readOnly
-                />
+                <AnimatedRating value={Number(champion.info.magic)} />
               </p>
 
               <p>
                 Difficulty:
-                <Rating
-                  name="customized-10"
-                  defaultValue={Number(champion.info.difficulty)}
-                  max={10}
-                  readOnly
-                />
+                <AnimatedRating value={Number(champion.info.difficulty)} />
               </p>
             </ModalStatsStarRate>
           </ModalStats>
@@ -105,7 +85,7 @@ export default function Card({ champion }) {
         src={`https://static.u.gg/assets/lol/riot_static/11.23.1/img/champion/${champion.image.full}`}
       />
       <ChampionName>{champion.id}</ChampionName>
-    </CardModal>
+    </CardContainer>
   );
 }
 
@@ -113,19 +93,32 @@ const Contenido = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  h1 {
-    font-size: 42px;
-    font-weight: 700;
-    margin-bottom: 10px;
+  gap: 20px;
+  padding: 10px;
+  cursor: pointer;
+  span {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0ff;
   }
+
   p {
-    font-size: 18px;
-    margin-bottom: -10px;
+    font-size: 16px;
+    line-height: 1.4;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  @media (max-width: 768px) {
+    gap: 16px;
+    p {
+      font-size: 14px;
+    }
   }
 `;
-
-const CardModal = styled.div`
+const CardContainer = styled.div`
   display: flex;
+  cursor: pointer;
   width: calc(20% - 20px);
   height: 400px;
   flex-direction: column;
@@ -133,13 +126,13 @@ const CardModal = styled.div`
   justify-content: space-between;
   border: 1px solid black;
   margin: 10px;
-  /* transition: transform 1s ease; */
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   transition: box-shadow 0.3s ease-in-out;
   &:hover {
     box-shadow: 0 5px 15px rgba(0, 102, 128, 1);
   }
 `;
+
 const ChampionName = styled.span`
   background-color: rgb(0, 102, 128);
   width: 100%;
@@ -153,13 +146,16 @@ const ChampionIMG = styled.img`
   border-radius: 20px;
   width: 180px;
 `;
-const ModalStatsStarRate = styled.section`
-  width: 50%;
-  line-height: 100%;
-  margin-top: 2px;
-`;
 const ModalStatsInitials = styled.section`
-  line-height: 175%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
+const ModalStatsStarRate = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 `;
 const HoverText = styled.p`
   position: relative;
@@ -187,12 +183,21 @@ const HoverText = styled.p`
 `;
 const ModalIMG = styled.img`
   width: 100%;
-  border: 5px rgba(11, 198, 227, 0.63);
-  border-style: inset;
+  max-height: 300px;
+  object-fit: cover;
+  border: 5px inset rgba(11, 198, 227, 0.63);
+  border-radius: 12px;
 `;
 const ModalStats = styled.div`
   width: 100%;
   display: flex;
-  letter-spacing: 0.1em;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 12px;
+  }
 `;

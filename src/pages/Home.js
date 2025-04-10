@@ -5,63 +5,114 @@ import styled from "styled-components";
 export default function Home() {
   return (
     <Container>
-      <div className="headerImgBox">
-        <Image src="https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt686035e751b05708/61d8fb621757dc6aed2adafc/SS22_TheCall_thumbnail_v2.jpg" />
-        <TextVideo>
-          <div>
-            <h1>The Call: Cinemática Season 2022</h1>
-          </div>
-          <div>
-            <h2>Un nuevo camino te llama. ¿Cómo responderás?</h2>
-          </div>
-        </TextVideo>
-        <Video>
+      <HeaderImageBox>
+        <TextVideo></TextVideo>
+      </HeaderImageBox>
+      <MainContent>
+        <Titulo>Welcome to the Summoner's Rift</Titulo>
+        <Descripcion>
+          Dive into the universe of League of Legends. Discover your favorite
+          champions, relive epic cinematics, and stay up to date with the most
+          important events in the world of Runeterra.
+        </Descripcion>
+
+        <VideoWrapper>
           <ReactPlayer
             url="https://www.youtube.com/watch?v=mDYqT0_9VR4&ab_channel=LeagueofLegends"
+            playing
+            muted
             controls
-            muted={true}
-            playing={true}
-            height={600}
-            width={1200}
-          ></ReactPlayer>
-        </Video>
-      </div>
-      <div>asdsdsdsdsdsdsdsdsdsdsdsdsdsd</div>
+            width="100%"
+            height="100%"
+          />
+        </VideoWrapper>
+
+        <VideoDescripcion>
+          <p>
+            This cinematic marked the beginning of the 2022 Season. A story full
+            of action, choices, and battles that inspire all summoners.
+          </p>
+        </VideoDescripcion>
+      </MainContent>
     </Container>
   );
 }
 
 const Container = styled.div`
-  position: relative;
-  text-align: left;
   color: white;
+  background-color: #0a0a0a;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 `;
-const Image = styled.img`
-  width: 100%;
-  height: 650px;
-  opacity: 0.9;
-  filter: brightness(30%);
+
+const HeaderImageBox = styled.div`
+  position: relative;
 `;
+
 const TextVideo = styled.div`
-  letter-spacing: 1.5px;
   position: absolute;
   top: 30%;
   left: 30px;
-  height: 400px;
   width: 400px;
   font-style: italic;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
   font-size: 25px;
-  background-size: cover;
+
+  h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
 
   h2 {
     font-size: 20px;
+    font-weight: 400;
   }
 `;
-const Video = styled.div`
-  position: absolute;
-  top: 10%;
-  right: 5%;
+
+const MainContent = styled.div`
+  padding: 60px 30px;
+  text-align: center;
+`;
+
+const Titulo = styled.h2`
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #fff;
+`;
+
+const Descripcion = styled.p`
+  font-size: 18px;
+  color: #ccc;
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+`;
+
+const VideoWrapper = styled.div`
+  position: relative;
+  padding-top: 56.25%;
+  margin: 0 auto;
+  max-width: 900px;
+
+  & > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  iframe,
+  video {
+    border-radius: 12px;
+  }
+`;
+
+const VideoDescripcion = styled.div`
+  margin-top: 30px;
+  font-size: 16px;
+  color: #bbb;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 `;

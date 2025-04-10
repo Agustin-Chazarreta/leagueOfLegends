@@ -1,87 +1,107 @@
-import React from "react";
-import "../App.css";
+import React, { useState } from "react";
 import styled from "styled-components";
+
 export default function Navegation({ champions, setChampionsFilter }) {
-  const filterFunction = (e) => {
+  const [search, setSearch] = useState("");
+
+  const filterByRole = (role) => {
     setChampionsFilter(
       Object.values(champions).filter((champion) =>
-        champion.tags.includes(e.target.title)
+        champion.tags.includes(role)
       )
     );
   };
-  const heroeAleatorio = () => {
-    let max = 156;
-    let min = 0;
-    const random = Math.floor(Math.random() * (max - min) + min);
 
-    console.log(Object.values(champions)[random].blurb);
-    setChampionsFilter(
-      Object.values(champions).filter((champion) =>
-        champion.id.includes(Object.values(champions)[random].id)
-      )
+  const filterBySearch = (value) => {
+    setSearch(value);
+    const filtered = Object.values(champions).filter((champion) =>
+      champion.name.toLowerCase().includes(value.toLowerCase())
     );
+    setChampionsFilter(filtered);
+  };
+
+  const heroeAleatorio = () => {
+    const keys = Object.keys(champions);
+    const randomKey = keys[Math.floor(Math.random() * keys.length)];
+    const randomChampion = champions[randomKey];
+    setChampionsFilter([randomChampion]);
   };
 
   return (
-    <NavCardField>
-      <NavCardFieldSelect value="Buscar">Buscar</NavCardFieldSelect>
-      <div>
-        <NavCardFieldButton onClick={() => setChampionsFilter(champions)}>
-          Todos
-        </NavCardFieldButton>
-        <NavCardFieldButton title="Assassin" onClick={(e) => filterFunction(e)}>
-          Asesinos
-        </NavCardFieldButton>
-        <NavCardFieldButton title="Fighter" onClick={(e) => filterFunction(e)}>
-          Luchadores
-        </NavCardFieldButton>
-        <NavCardFieldButton title="Mage" onClick={(e) => filterFunction(e)}>
-          Magos
-        </NavCardFieldButton>
-        <NavCardFieldButton title="Marksman" onClick={(e) => filterFunction(e)}>
-          Tiradores
-        </NavCardFieldButton>
-        <NavCardFieldButton title="Support" onClick={(e) => filterFunction(e)}>
-          Soportes
-        </NavCardFieldButton>
-        <NavCardFieldButton title="Tank" onClick={(e) => filterFunction(e)}>
-          Tanques
-        </NavCardFieldButton>
-        <NavCardFieldButton onClick={() => heroeAleatorio()}>
-          Campeon Aleatorio
-        </NavCardFieldButton>
-      </div>
-      <NavCardFieldSelect value="Buscar">Buscar</NavCardFieldSelect>
-    </NavCardField>
+    <NavWrapper>
+      <InputSearch
+        placeholder="Buscar campeón..."
+        value={search}
+        onChange={(e) => filterBySearch(e.target.value)}
+      />
+
+      <ButtonsWrapper>
+        <Button onClick={() => setChampionsFilter(champions)}>Todos</Button>
+        <Button onClick={() => filterByRole("Assassin")}>Asesinos</Button>
+        <Button onClick={() => filterByRole("Fighter")}>Luchadores</Button>
+        <Button onClick={() => filterByRole("Mage")}>Magos</Button>
+        <Button onClick={() => filterByRole("Marksman")}>Tiradores</Button>
+        <Button onClick={() => filterByRole("Support")}>Soportes</Button>
+        <Button onClick={() => filterByRole("Tank")}>Tanques</Button>
+        <Button onClick={heroeAleatorio}>Aleatorio</Button>
+      </ButtonsWrapper>
+    </NavWrapper>
   );
 }
-const NavCardField = styled.nav`
-  height: 40px;
-  width: 1400px;
-  border-style: inset;
+const NavWrapper = styled.nav`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  margin: 20px auto;
+  gap: 15px;
+  margin: 30px auto;
+  width: 100%;
+  max-width: 1400px;
 `;
-const NavCardFieldButton = styled.button`
-  border: none;
-  cursor: pointer;
-  margin: 0px 7.5px 0px 7.5px;
-  box-shadow: 3px;
-  background-color: white;
-  transition: box-shadow 0.5s ease-in-out;
-  transition: background-color 0.5s ease-in-out;
-  &:hover {
-    box-shadow: 0px 0px 0px 1px rgb(140, 137, 143);
-    background-color: rgb(185, 202, 202);
-  }
+
+const InputSearch = styled.input`
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #ffcc00;
+  background-color: #1c1c1c;
+  color: white;
+  width: 300px;
+
   &:focus {
-    box-shadow: 0px 0px 0px 1px rgb(140, 137, 143);
-    background-color: rgb(185, 202, 202);
+    outline: none;
+    border-color: #ffaa00;
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
   }
 `;
-const NavCardFieldSelect = styled.select`
-  width: 100px;
-  height: 100%;
+
+const ButtonsWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+`;
+
+const Button = styled.button`
+  background-color: #111;
+  color: #ffcc00;
+  border: 2px solid #ffcc00;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: #222;
+    color: white;
+    border-color: white;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #ffaa00;
+  }
 `;

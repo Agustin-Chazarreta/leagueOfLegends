@@ -1,16 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import { AiFillCloseSquare } from "react-icons/ai";
+
 export default function Modal({ children, stateModal, setStateModal }) {
   return (
     <>
       {stateModal && (
         <Overlay>
           <ContenedorModal>
-            <EncabezadoModal></EncabezadoModal>
-            <BotonCerrar onClick={() => setStateModal(!stateModal)}>
-              <AiFillCloseSquare />
-            </BotonCerrar>
+            <EncabezadoModal>
+              <h3>Detalles del Campeón</h3>
+              <BotonCerrar onClick={() => setStateModal(false)}>
+                <AiFillCloseSquare size={24} />
+              </BotonCerrar>
+            </EncabezadoModal>
             {children}
           </ContenedorModal>
         </Overlay>
@@ -18,58 +21,63 @@ export default function Modal({ children, stateModal, setStateModal }) {
     </>
   );
 }
+
 const Overlay = styled.div`
   width: 100vw;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(3px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  z-index: 999;
+  overflow-y: auto;
+  padding: 0;
 `;
-
 const ContenedorModal = styled.div`
-  width: 500px;
-  min-height: 100px;
-  background: rgb(6, 28, 37);
-  position: relative;
-  border-radius: 5px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  background: linear-gradient(145deg, #0f0f0f, #1c1c1c);
+  border: 3px solid #0ff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(11, 198, 227, 0.6);
+  padding: 30px;
   color: #fff;
-  border: 5px solid rgb(11, 198, 227);
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  @media (max-width: 480px) {
+    padding: 20px;
+  }
 `;
 const EncabezadoModal = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-buttom: 20px;
-  padding-buttom: 20px;
-  border-buttom: 1px solid #e8e8e8;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #0ff;
+
   h3 {
-    font-weight: 500;
-    font-size: 16px;
-    color: black;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #0ff;
   }
 `;
+
 const BotonCerrar = styled.button`
-  position: absolute;
-  background: #000;
-  top: 20px;
-  right: 20px;
-  width: 30px;
-  height: 30px;
+  background: transparent;
   border: none;
-  background: none;
+  color: #0ff;
   cursor: pointer;
-  transition: 0.3s ease all;
-  border-radius: 5px;
-  color: #1766dc;
+  transition: transform 0.2s ease, color 0.3s;
 
   &:hover {
-    background: #f3f3f3;
+    transform: scale(1.2);
+    color: #ffd700; /* dorado */
   }
 `;
