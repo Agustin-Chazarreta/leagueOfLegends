@@ -14,7 +14,7 @@ import {
 
 export default function Card({ champion }) {
   const [stateModal, setStateModal] = useState(false);
-
+  console.log("champion.image.full", champion.image.full);
   return (
     <CardContainer onClick={() => setStateModal(!stateModal)}>
       <Modal stateModal={stateModal} setStateModal={setStateModal}>
@@ -82,7 +82,7 @@ export default function Card({ champion }) {
         </Contenido>
       </Modal>
       <ChampionIMG
-        src={`https://static.u.gg/assets/lol/riot_static/11.23.1/img/champion/${champion.image.full}`}
+        src={`https://ddragon.leagueoflegends.com/cdn/15.10.1/img/champion/${champion.image.full}`}
       />
       <ChampionName>{champion.id}</ChampionName>
     </CardContainer>

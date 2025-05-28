@@ -5,32 +5,32 @@ export default function NewsCardField() {
   return (
     <DivNewsCardField>
       <NewsCard
-        imagen="https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd51626dc512592fd/61a8316e46713833c753a1ef/TFT_Patch_11_24_Notes_Banner_v2.jpg"
+        imagen="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/92c7480b87a90f9f2c6e625d4ac7680e3b508d73-1920x1080.jpg?auto=format&fit=crop&q=80&h=188&w=335&crop=center"
         titulo="NOTAS DE LA VERSIÓN 11.24 DE TEAMFIGHT TACTICS"
-        subtitulo="TFT"
+        subtitulo="La versión 14.5 trae consigo cambios para renovar y mejorar objetos importantes y añadir cuatro artefactos nuevos. Además, incluye ajustes de equilibrio para Ciudad Cibernética y Renacer: Remix rúnico."
       ></NewsCard>
       <NewsCard
-        imagen="https://media.vandal.net/m/1-2021/2021121964291_1.jpg"
+        imagen="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/9d36f1e322fe135fa49179751dfab12060da3985-1920x1080.jpg?auto=format&fit=crop&q=80&h=188&w=335&crop=center"
         titulo="NEW SKINS PRE-SEASON"
         subtitulo="NEW SKINS"
       ></NewsCard>
       <NewsCard
-        imagen="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/arcane-league-of-legends-1636541499.jpg?crop=1.00xw:0.893xh;0,0.0261xh&resize=640:*"
+        imagen="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/c844cde8e456801ae22c5de960073d5d48345e06-1920x1080.jpg?auto=format&fit=crop&q=80&h=188&w=335&crop=center"
         titulo="NEW LEAGUE SERIE RELEASE"
         subtitulo="ARCANE"
       ></NewsCard>
       <NewsCard
-        imagen="https://img.blogs.es/anexom/wp-content/uploads/2021/08/LEAGUE-OF-LEGENDS-WILD-RIFT.jpg"
+        imagen="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/8d51e95a7ccafd0e1afbe0d13df5736b0b54595e-1920x1080.jpg?auto=format&fit=crop&q=80&h=188&w=335&crop=center"
         titulo="NOTAS DE LA VERSIÓN 11.23 DE LEAGUE OF LEGENDS"
         subtitulo="VERSIÓN 11.23"
       ></NewsCard>
       <NewsCard
-        imagen="https://images6.alphacoders.com/651/651136.jpg"
+        imagen="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/7616895863b5df37d8444f1fb4513d07385dea83-1920x1080.jpg?auto=format&fit=crop&q=80&h=270&w=480&crop=center"
         titulo="NOTAS DE LA VERSIÓN 11.22 DE LEAGUE OF LEGENDS"
         subtitulo="VERSIÓN 11.22"
       ></NewsCard>
       <NewsCard
-        imagen="https://whatifgaming.com/wp-content/uploads/2022/05/Dark-Star-scaled.jpg"
+        imagen="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/3d2ee15078c7edcd51d0d686b27b8b2938b0f031-1920x1080.jpg?auto=format&fit=crop&q=80&h=188&w=335&crop=center"
         titulo="NOTAS DE LA VERSIÓN 11.21 DE LEAGUE OF LEGENDS"
         subtitulo="VERSIÓN 11.21"
       ></NewsCard>
@@ -41,4 +41,5 @@ const DivNewsCardField = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin: 20px;
 `;

@@ -9,7 +9,7 @@ export default function Rotation({ champions }) {
 
   useEffect(() => {
     fetch(
-      `https://la1.api.riotgames.com/lol/platform/v3/champion-rotations?api_key=${API_KEY_LOL}`
+      `https://la2.api.riotgames.com/lol/platform/v3/champion-rotations?api_key=${API_KEY_LOL}`
     )
       .then((res) => res.json())
       .then((data) => {

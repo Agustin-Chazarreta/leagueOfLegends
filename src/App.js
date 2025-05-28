@@ -13,13 +13,13 @@ function App() {
   const [championsFilter, setChampionsFilter] = useState([]);
 
   const BASE_URL =
-    "https://ddragon.leagueoflegends.com/cdn/11.15.1/data/en_US/";
+    "https://ddragon.leagueoflegends.com/cdn/15.10.1/data/en_US/";
   useEffect(() => {
     fetch(`${BASE_URL}champion.json`)
       .then((res) => res.json())
-      .then((data) => {
-        setChampions(data.data);
-        setChampionsFilter(data.data);
+      .then((champions) => {
+        setChampions(champions.data);
+        setChampionsFilter(champions.data);
       });
   }, []);
 

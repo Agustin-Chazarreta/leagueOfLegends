@@ -1,118 +1,177 @@
 import React from "react";
-import ReactPlayer from "react-player";
 import styled from "styled-components";
 
 export default function Home() {
   return (
     <Container>
-      <HeaderImageBox>
-        <TextVideo></TextVideo>
-      </HeaderImageBox>
-      <MainContent>
-        <Titulo>Welcome to the Summoner's Rift</Titulo>
-        <Descripcion>
-          Dive into the universe of League of Legends. Discover your favorite
-          champions, relive epic cinematics, and stay up to date with the most
-          important events in the world of Runeterra.
-        </Descripcion>
-
-        <VideoWrapper>
-          <ReactPlayer
-            url="https://www.youtube.com/watch?v=mDYqT0_9VR4&ab_channel=LeagueofLegends"
-            playing
-            muted
-            controls
-            width="100%"
-            height="100%"
+      <Header>
+        <VideoContainer>
+          <StyledVideo autoPlay muted loop playsInline>
+            <source
+              src="https://cmsassets.rgpub.io/sanity/files/dsfx7636/news/8ab3e227121c53aacab0c9b9f7a48adbc65db520.webm"
+              type="video/webm"
+            />
+            Tu navegador no soporta video HTML5.
+          </StyledVideo>
+        </VideoContainer>
+      </Header>
+      <Section>
+        <ImageContainer>
+          <img
+            src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/a6f94cd5ed222d3b99e535f17cd9592d3c716bb5-3840x1616.png?auto=format&amp;fit=fill&amp;q=80&amp;h=816"
+            alt=""
+            loading="lazy"
+            data-testid="backdrop-background-image"
+            role="presentation"
           />
-        </VideoWrapper>
-
-        <VideoDescripcion>
-          <p>
-            This cinematic marked the beginning of the 2022 Season. A story full
-            of action, choices, and battles that inspire all summoners.
-          </p>
-        </VideoDescripcion>
-      </MainContent>
+        </ImageContainer>
+        <Overlay>
+          <OverlayContainer>
+            <div>IMage</div>
+            <TextAndButtonContainer>
+              <TextContainer>
+                <P1>DOMINA CON</P1>
+                <P2>ESTILO</P2>
+                <P3>
+                  Cambia la apariencia de tus campeones favoritos con aspectos y
+                  personaliza tu estilo.
+                </P3>
+              </TextContainer>
+              <div>
+                <A>
+                  <SPAN>
+                    <ASD>juega ahora</ASD>
+                  </SPAN>
+                </A>
+              </div>
+            </TextAndButtonContainer>
+          </OverlayContainer>
+        </Overlay>
+      </Section>
     </Container>
   );
 }
 
-const Container = styled.div`
-  color: white;
-  background-color: #0a0a0a;
-  min-height: 100vh;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+const A = styled.a`
+  display: block;
+  width: fit-content;
+  color: black;
+  background-color: #c8aa6e;
+  padding: 19px 32px;
+  text-transform: uppercase;
 `;
 
-const HeaderImageBox = styled.div`
-  position: relative;
+const SPAN = styled.span`
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
 `;
 
-const TextVideo = styled.div`
-  position: absolute;
-  top: 30%;
-  left: 30px;
-  width: 400px;
-  font-style: italic;
-  font-size: 25px;
-
-  h1 {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-
-  h2 {
-    font-size: 20px;
-    font-weight: 400;
-  }
-`;
-
-const MainContent = styled.div`
-  padding: 60px 30px;
+const ASD = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   text-align: center;
 `;
 
-const Titulo = styled.h2`
-  font-size: 36px;
-  margin-bottom: 20px;
-  font-weight: bold;
-  color: #fff;
+const P1 = styled.div`
+  word-break: break-word;
+  font-family: "Beaufort for LOL", sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 24px;
+  line-height: 32px;
+  margin: 10px 0 10px;
+`;
+const P2 = styled.div`
+  overflow-wrap: break-word;
+  word-break: break-word;
+  font-family: "Beaufort for LOL", sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 80px;
+  line-height: 88px;
 `;
 
-const Descripcion = styled.p`
+const P3 = styled.div`
+  font-family: Spiegel, sans-serif;
+  font-weight: 400;
+  word-break: break-word;
   font-size: 18px;
-  color: #ccc;
-  max-width: 800px;
-  margin: 0 auto 40px auto;
+  line-height: 26px;
+  color: rgb(255, 255, 255);
+  margin: 10px 0 40px;
 `;
 
-const VideoWrapper = styled.div`
-  position: relative;
-  padding-top: 56.25%;
+const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+const TextAndButtonContainer = styled.div`
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  width: 50%;
+`;
+const Overlay = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+const OverlayContainer = styled.div`
+  display: flex;
+  width: 100%;
+`;
+const Container = styled.div`
+  width: 100%;
+  background-color: #0a0a0a;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+`;
+
+const Header = styled.div`
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+`;
+
+const VideoContainer = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+
+const StyledVideo = styled.video`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+const ImageContainer = styled.div`
+  width: 100%;
   margin: 0 auto;
-  max-width: 900px;
-
-  & > div {
-    position: absolute;
-    top: 0;
-    left: 0;
+  img {
     width: 100%;
-    height: 100%;
-  }
-
-  iframe,
-  video {
-    border-radius: 12px;
+    height: auto;
+    display: block;
   }
 `;
 
-const VideoDescripcion = styled.div`
-  margin-top: 30px;
-  font-size: 16px;
-  color: #bbb;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+const Section = styled.section`
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 18px;
+    color: #ccc;
+  }
 `;
