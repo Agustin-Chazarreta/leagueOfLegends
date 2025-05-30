@@ -1,27 +1,21 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-export default function InfoSection() {
-  const [videoLink, setVideoLink] = useState(
-    "https://cmsassets.rgpub.io/sanity/files/dsfx7636/news/bbc27473157462adacf0de441a8796268eb2d0ac.mp4"
-  );
+const videoLinks = {
+  Grieta:
+    "https://cmsassets.rgpub.io/sanity/files/dsfx7636/news/bbc27473157462adacf0de441a8796268eb2d0ac.mp4",
+  Aram: "https://cmsassets.rgpub.io/sanity/files/dsfx7636/news/0a9b9f8dacb54086c58c1af8aa880d7cf6d7fea6.mp4",
+  TFT: "https://cmsassets.rgpub.io/sanity/files/dsfx7636/news/e5791dbc0787a96e83b82df20d44375f09f4d861.mp4",
+};
+
+export default function FinalSection() {
   const [selected, setSelected] = useState("Grieta");
+  const [videoLink, setVideoLink] = useState(videoLinks[selected]);
 
   const swapFrame = (videoKey) => {
+    console.log(videoKey);
     setSelected(videoKey);
-    if (videoKey === "Aram") {
-      setVideoLink(
-        "https://cmsassets.rgpub.io/sanity/files/dsfx7636/news/0a9b9f8dacb54086c58c1af8aa880d7cf6d7fea6.mp4"
-      );
-    } else if (videoKey === "Grieta") {
-      setVideoLink(
-        "https://cmsassets.rgpub.io/sanity/files/dsfx7636/news/bbc27473157462adacf0de441a8796268eb2d0ac.mp4"
-      );
-    } else if (videoKey === "TFT") {
-      setVideoLink(
-        "https://cmsassets.rgpub.io/sanity/files/dsfx7636/news/e5791dbc0787a96e83b82df20d44375f09f4d861.mp4"
-      );
-    }
+    setVideoLink(videoLinks[videoKey]);
   };
 
   const icons = [
@@ -44,21 +38,14 @@ export default function InfoSection() {
 
   return (
     <Section>
-      <ImageBackground>
-        <img
-          src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/0eb5bc3bbb7794eceea3a5e7948906e1cbcd027f-5120x1810.png?auto=format&fit=fill&q=80&w=1069"
-          alt=""
-          loading="lazy"
-        />
-      </ImageBackground>
-      <Overlay>
+      <OverlayContainer>
         <ContentWrapper>
           <ContentColumn>
             <TextContainer>
               <Title>MÚLTIPLES MANERAS DE</Title>
               <Subtitle>JUGAR</Subtitle>
 
-              <StyledLink>
+              <StyledLink href="#" aria-label="Juega ahora">
                 <ButtonWrapper>
                   <ButtonContent>juega ahora</ButtonContent>
                 </ButtonWrapper>
@@ -83,7 +70,14 @@ export default function InfoSection() {
 
           <HeroImageContainer>
             <BorderVideo>
-              <Video autoPlay muted loop playsInline src={videoLink} />
+              <Video
+                autoPlay
+                muted
+                loop
+                playsInline
+                src={videoLink}
+                aria-label={`Video modo de juego: ${selected}`}
+              />
             </BorderVideo>
             <TextVideoContainer>
               <TitleTextVideo>EL MODO DE JUEGO MÁS POPULAR</TitleTextVideo>
@@ -94,83 +88,35 @@ export default function InfoSection() {
             </TextVideoContainer>
           </HeroImageContainer>
         </ContentWrapper>
-      </Overlay>
+      </OverlayContainer>
     </Section>
   );
 }
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-`;
-
-const IconFieldContainer = styled.div`
-  display: flex;
-  justify-content: center;
-
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 20px;
-`;
-
-const IconField = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 300ms, opacity 300ms;
-  cursor: pointer;
-  text-align: center;
-  max-width: 64px;
-  margin-top: 30px;
-  transform: ${(props) => (props.selected ? "scale(1.1)" : "scale(1)")};
-  opacity: ${(props) => (props.selected ? 1 : 0.4)};
-`;
-
-const IconImage = styled.img`
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-
-  &:hover {
-    opacity: 1;
-  }
-`;
-
-const SubIconText = styled.div`
-  font-family: Spiegel, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
-  text-transform: uppercase;
-  word-break: normal;
-  font-weight: 600;
-  color: rgb(255, 255, 255);
-  margin-top: 10px;
-`;
-
 const Section = styled.section`
-  position: relative;
   width: 100%;
-  margin: 0 auto;
-`;
+  background-image: url("https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/0eb5bc3bbb7794eceea3a5e7948906e1cbcd027f-5120x1810.png?auto=format&fit=fill&q=80&w=1069");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 20px;
 
-const ImageBackground = styled.div`
-  width: 100%;
-  img {
-    width: 100%;
-    height: auto;
-    display: block;
+  @media (max-width: 768px) {
+    padding: 60px 15px;
   }
 `;
 
-const Overlay = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
+const OverlayContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 30px;
+  }
 `;
 
 const ContentWrapper = styled.div`
@@ -178,7 +124,6 @@ const ContentWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 40px;
   width: 100%;
 
   @media (max-width: 768px) {
@@ -238,12 +183,20 @@ const Subtitle = styled.div`
 `;
 
 const StyledLink = styled.a`
-  display: block;
+  display: flex;
   background-color: #c8aa6e;
   padding: 19px 32px;
   text-transform: uppercase;
   color: black;
   margin-top: 20px;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    background-color: #b29655;
+  }
 `;
 
 const ButtonWrapper = styled.span``;
@@ -255,9 +208,66 @@ const ButtonContent = styled.div`
   gap: 4px;
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
+
+const IconFieldContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+`;
+
+const IconField = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 300ms, opacity 300ms;
+  cursor: pointer;
+  text-align: center;
+  max-width: 64px;
+  margin-top: 30px;
+  transform: ${(props) => (props.selected ? "scale(1.1)" : "scale(1)")};
+  opacity: ${(props) => (props.selected ? 1 : 0.4)};
+  outline: none;
+
+  &:focus {
+    outline: 2px solid #c8aa6e;
+    outline-offset: 2px;
+  }
+`;
+
+const IconImage = styled.img`
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+`;
+
+const SubIconText = styled.div`
+  font-family: Spiegel, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  text-transform: uppercase;
+  word-break: normal;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  margin-top: 10px;
+`;
+
 const BorderVideo = styled.div`
-  width: 520px;
-  height: 520px;
+  width: clamp(180px, 40vw, 520px);
+  height: clamp(180px, 40vw, 520px);
   border-radius: 50%;
   border: 4px solid rgb(200, 170, 110);
   display: flex;
@@ -266,21 +276,15 @@ const BorderVideo = styled.div`
   background-color: transparent;
 
   @media (max-width: 768px) {
-    width: 220px;
-    height: 220px;
+    margin: 0 auto;
   }
 `;
 
 const Video = styled.video`
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   object-fit: cover;
-
-  @media (max-width: 768px) {
-    width: 180px;
-    height: 180px;
-  }
 `;
 
 const TextVideoContainer = styled.div`
@@ -300,9 +304,4 @@ const TitleTextVideo = styled.div`
 
 const SubTitleTextVideo = styled.div`
   font-family: Spiegel, sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 26px;
-  color: #fff;
-  margin-top: 10px;
 `;
