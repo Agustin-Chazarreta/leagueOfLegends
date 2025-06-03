@@ -9,19 +9,18 @@ export default function AllChampions({
   championsFilter,
 }) {
   return (
-    <div>
-      <Header>
-        <HeaderSection>
-          <h1>
-            CHOOSE YOUR <span>CHAMPION</span>
-          </h1>
-          <p>
-            With over 140 champions, you'll find the one that fits your
-            playstyle perfectly. <br />
-            Master one or master them all.
-          </p>
-        </HeaderSection>
-      </Header>
+    <>
+      <HeaderSection>
+        <h1>
+          ELIGE TU <span>CAMPEÓN</span>
+        </h1>
+        <p>
+          Con más de 140 campeones, encontrarás al que se adapte perfectamente a
+          tu estilo de juego. <br />
+          Domina uno o domínalos a todos.
+        </p>
+      </HeaderSection>
+
       <Navegation
         champions={champions}
         championsFilter={championsFilter}
@@ -32,45 +31,24 @@ export default function AllChampions({
           return <Card champion={champion}></Card>;
         })}
       </DivCardField>
-    </div>
+    </>
   );
 }
 
-const Header = styled.div`
-  height: 300px;
-  width: 1903px;
-  font-style: italic;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 30px;
-  background-size: cover;
-  text-align: center;
-  h2 {
-    font-size: 20px;
-  }
-  h3 {
-    width: 460px;
-    margin: 12px auto 0px;
-    font-size: 0.875rem;
-    text-align: center;
-    letter-spacing: 0.08em;
-    line-height: 1.6;
-  }
-`;
-
 const DivCardField = styled.div`
   display: flex;
-  align-items: center;
-  width: 1400px;
   flex-wrap: wrap;
-  margin: 0 auto;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
 `;
 
 const HeaderSection = styled.section`
   text-align: center;
-  padding: 40px 20px;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   h1 {
     font-size: 2.5rem;
     font-weight: 800;
@@ -80,7 +58,6 @@ const HeaderSection = styled.section`
 
     span {
       color: #ffd700;
-      display: inline-block;
       margin-left: 8px;
     }
 
@@ -98,8 +75,7 @@ const HeaderSection = styled.section`
     font-size: 1rem;
     color: #ddd;
     max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     line-height: 1.6;
 
     @media (min-width: 640px) {

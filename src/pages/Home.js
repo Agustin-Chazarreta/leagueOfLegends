@@ -1,15 +1,17 @@
 import React from "react";
-import HeroVideoSection from "../components/HeroVideoSection";
+import GameVideoSection from "../components/GameVideoSection";
 import InfoSection from "../components/InfoSection";
 import FinalSection from "../components/FinalSection";
+import HeroTypeSection from "../components/HeroTypeSection";
 import styled from "styled-components";
 
 export default function Home() {
   return (
     <Container>
-      <HeroVideoSection />
+      <GameVideoSection />
       <InfoSection />
       <FinalSection />
+      <HeroTypeSection />
     </Container>
   );
 }

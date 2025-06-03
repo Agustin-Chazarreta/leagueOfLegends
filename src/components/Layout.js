@@ -19,11 +19,11 @@ export default function Layout(props) {
         />
       </Header>
       <NavBar>
-        <StyledLink to="/">Home</StyledLink>
-        <StyledLink to="/champions">Champions</StyledLink>
-        <StyledLink to="/news">News</StyledLink>
-        <StyledLink to="/rotation">Free Rotation</StyledLink>
-        <StyledLink to="/minigame">Mini Game</StyledLink>
+        <StyledLink to="/">Inicio</StyledLink>
+        <StyledLink to="/champions">Campeones</StyledLink>
+        <StyledLink to="/news">Noticias</StyledLink>
+        <StyledLink to="/rotation">Rotación Gratuita</StyledLink>
+        <StyledLink to="/minigame">Minijuego</StyledLink>
       </NavBar>
 
       <Content>{props.children}</Content>

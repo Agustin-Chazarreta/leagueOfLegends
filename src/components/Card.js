@@ -56,22 +56,22 @@ export default function Card({ champion }) {
             </ModalStatsInitials>
             <ModalStatsStarRate>
               <p>
-                Attack:
+                Ataque:
                 <AnimatedRating value={Number(champion.info.attack)} />
               </p>
 
               <p>
-                Defense:
+                Defensa:
                 <AnimatedRating value={Number(champion.info.defense)} />
               </p>
 
               <p>
-                Magic:
+                Magia:
                 <AnimatedRating value={Number(champion.info.magic)} />
               </p>
 
               <p>
-                Difficulty:
+                Dificultad:
                 <AnimatedRating value={Number(champion.info.difficulty)} />
               </p>
             </ModalStatsStarRate>
@@ -108,18 +108,11 @@ const Contenido = styled.div`
     text-align: center;
     padding: 0 10px;
   }
-
-  @media (max-width: 768px) {
-    gap: 16px;
-    p {
-      font-size: 14px;
-    }
-  }
 `;
 const CardContainer = styled.div`
   display: flex;
   cursor: pointer;
-  width: calc(20% - 20px);
+  width: 200px;
   height: 400px;
   flex-direction: column;
   align-items: center;
@@ -144,7 +137,7 @@ const ChampionName = styled.span`
 `;
 const ChampionIMG = styled.img`
   border-radius: 20px;
-  width: 180px;
+  width: 100%;
 `;
 const ModalStatsInitials = styled.section`
   display: flex;
